@@ -1,113 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8" 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="blog/static/vendor/bootstrap/css/bootstrap.min.css" type="text/css">
-    <link rel="stylesheet" href="blog/static/css/clean-blog.min.css" type="text/css">
-    <title>Book Club</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"crossorigin="anonymous" />
+    <link rel="stylesheet" href="../../static/css/style.css">
+	<title>Book Club</title>
 </head>
 <body>
 
-	<nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
-		<div class="container">
-			<a class="navbar-brand" href="#">Thorin &amp; Company</a>
-			<button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-	        Menu
-	        <i class="fas fa-bars"></i>
-	      </button>
+	<!-- Navigation -->
+	<nav class="navbar navbar-expand-lg navbar-light bg-light shadow" id="mainNav">
+		<div class="container-fluid">
+			<a class="navbar-brand" href="{% url 'post_list' %}">Book Club</a>
+			<button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+				aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
 			<div class="collapse navbar-collapse" id="navbarResponsive">
 				<ul class="navbar-nav ml-auto">
-					<li class="nav-item">
-						<a class="nav-link" href="#">Home</a>
+					<li class="nav-item text-black">
+						<a class="nav-link text-black font-weight-bold" href="#">About</a>
 					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="#">About</a>
+					<li class="nav-item text-black">
+						<a class="nav-link text-black font-weight-bold" href="#">Policy</a>
 					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="#">Contact Us</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="#">Careers</a>
+					<li class="nav-item text-black">
+						<a class="nav-link text-black font-weight-bold" href="#">Contact</a>
 					</li>
 				</ul>
 			</div>
 		</div>
 	</nav>
-	
-	<!-- Page Header -->
-	<header class="masthead">
-		<div class="overlay"></div>
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-8 col-md-10 mx-auto">
-					<div class="site-heading">
-						<h1>Thorin &amp; Company</h1>
-						<span class="subheading">Thorin and his company of dwarves</span>
-					</div>
-				</div>
-			</div>
-		</div>
-	</header>
-	
-	<!-- Main Content -->
-	<div class="container">
-
-        {% block content %}
-        {% endblock %}
-
-	</div>
-	
-	<hr>
-	
+	{% block content %}
+	<!-- Content Goes here -->
+	{% endblock content %}
 	<!-- Footer -->
-	<footer>
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-8 col-md-10 mx-auto">
-					<ul class="list-inline text-center">
-						<li class="list-inline-item">
-							<a href="#">
-								<span class="fa-stack fa-lg">
-	                  <i class="fas fa-circle fa-stack-2x"></i>
-	                  <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
-	                </span>
-							</a>
-						</li>
-						<li class="list-inline-item">
-							<a href="#">
-								<span class="fa-stack fa-lg">
-	                  <i class="fas fa-circle fa-stack-2x"></i>
-	                  <i class="fab fa-facebook-f fa-stack-1x fa-inverse"></i>
-	                </span>
-							</a>
-						</li>
-						<li class="list-inline-item">
-							<a href="#">
-								<span class="fa-stack fa-lg">
-	                  <i class="fas fa-circle fa-stack-2x"></i>
-	                  <i class="fab fa-github fa-stack-1x fa-inverse"></i>
-	                </span>
-							</a>
-						</li>
-					</ul>
-					<p class="copyright text-muted">Copyright &copy; Your Website <span id="copyright"></span></p>
-				</div>
-			</div>
-		</div>
+	<footer class="py-3 bg-grey">
+		<p class="m-0 text-dark text-center ">Copyright &copy; Django Central</p>
 	</footer>
-	
-	<!-- Bootstrap core JavaScript -->
-	<script src="blog/static/vendor/jquery/jquery.min.js"></script>
-	<script src="blog/static/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-	
-	<!-- Custom scripts for this template -->
-	<script src="blog/static/js/clean-blog.min.js"></script>
-
-    <script>
-        $("#copyright").text(new Date().getFullYear());
-    </script>
-
 </body>
 </html>
