@@ -2,9 +2,21 @@
 {% load static %}
 
 {% block content %}
-    <h2>New post</h2>
-    <form method="POST" class="post-form">{% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit" class="btn btn-outline-primary btn-sm">Save</button>
-    </form>
-{% endblock %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-8 card mb-4  mt-3 left  top">
+            <div class="card-body">
+                <h2>New post</h2>
+                <form method="POST" class="post-form">{% csrf_token %}
+                    {{ form.as_p }}
+                    <button type="submit" class="btn btn-outline-primary btn-sm">Save</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    {% block sidebar %} {% include 'sidebar.html' %} {% endblock sidebar %}
+    
+</div>
+
+{% endblock content %}
+

@@ -15,7 +15,7 @@ def details(request, pk):
 
 
 def about(request):
-    aboutus = get_object_or_404(Post)
+    aboutus = ""
     return render(request, 'about.html', {'aboutus': aboutus})
 
 

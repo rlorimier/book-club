@@ -7,7 +7,7 @@
   <div class="row">
     <div class="col-md-8 card mb-4  mt-3 left  top">
       <div class="card-body">
-        <h1>{% block title %} {{ post.title }} {% endblock title %}</h1>
+       <h1>{% block title %} {{ post.title }} {% endblock title %}</h1>
         <p class=" text-muted">{{ post.author }} | {{ post.created_date }}</p>
         <a href="{% url 'newpost' pk=post.pk %}" class="btn btn-outline-primary btn-sm">Edit</a>
         <p class="card-text ">{{ post.text|linebreaksbr }}</p>
