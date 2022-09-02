@@ -1,4 +1,5 @@
-{% extends 'post_list.html' %} 
+{% extends "base.html" %}
+{% load static %}
 
 {% block content %}
 
@@ -8,6 +9,7 @@
       <div class="card-body">
         <h1>{% block title %} {{ post.title }} {% endblock title %}</h1>
         <p class=" text-muted">{{ post.author }} | {{ post.created_date }}</p>
+        <a href="{% url 'newpost' pk=post.pk %}" class="btn btn-outline-primary btn-sm">Edit</a>
         <p class="card-text ">{{ post.text|linebreaksbr }}</p>
       </div>
     </div>
