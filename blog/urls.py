@@ -1,4 +1,4 @@
-from django.urls import path
+from django.urls import path, include
 from . import views
 
 urlpatterns = [
@@ -6,5 +6,6 @@ urlpatterns = [
     path('post/<int:pk>/', views.details, name='details'),
     path('post/new/', views.newpost, name='newpost'),
     path('post/<int:pk>/edit/', views.newpost, name='newpost'),
-    path('post/about', views.about, name='about'),
+    path('post/about/', views.about, name='about'),
+    path('accounts/', include('allauth.urls')),
 ]
