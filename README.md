@@ -54,6 +54,7 @@ You can check the blog clicking HERE
 * [Code Institute](https://codeinstitute.net/ie/) - course materials, Slack community and tutor/mentor support
 * [Boostrap docs](https://getbootstrap.com/docs/5.2/getting-started/introduction/) - for material support
 * [Django central](https://djangocentral.com/) - for inspiration and material support
+* [Codemy.com](https://www.youtube.com/c/Codemycom) - youtube channel for material support
 * [W3 Schools](https://www.w3schools.com/django/) - for material support
 
 
@@ -90,19 +91,27 @@ _To Fix: Needed support from Tutor - The server was not running. I was told to r
 
 * Hyperlinks not working
 
+The pages were not extending the 'base.html'
+
+_To Fix: Needed support from Tutor - I was told to include on the top of every page 'load static' and it worked_
+
+
+* New comment does not show
+
+When adding a new comment (logged in and/or out), the page is reloaded and redirected correctly with no error messages, however the comment is not saved and does not appear on the website neither on the blog admin server.
+
+_To Fix: No support needed (although I tried to discuss this issue with my mentor but the time was not enough) - This is the issue that took longer to be solved. I searched on web for different tutorials but any of them seemed to be helpfull. After a while, I just needed to add 'data' on views.py, line 55_
+
+
+* New post show error message
+
+When adding a new post (only logged users), it shows and error message
+
+_To Fix: No support needed - I was using the same function for both, edit and create a new post. I decided to make it individualy and then it starts to work_
 
 
 
-Variables counter and times_win - when declared inside the function both were adding 1 only two times and then stopping the counting. I declared them outside the function and used them as global variables within the function and it makes them work properly, adding one at every victory and every time the game was played.
 
-Function keep_playing() - The input was initially with the 'while', with no variables declared to store it. The answer Y would restart the game, however any other letter typed would end it. I created the variable play_again and the if/else statements within the while loop so whatever the user types has a reaction.
-
-Line 150 - I add the input to ask the user Y/N (same as the one on line 142). By doing this, whenever the answer was Y the loop restarted and the question was repeted. The use of 'continue' avoided the duplicated questioning and restarted the game straight away.
-
-ISSUE
-You may notice that this repository only contain a few commits. This was not intentional and happened just because the code was initially written in another repository. You can check it by clicking HERE. When deploying the initial project on Heroku it was always returning failure messages. Failure
-
-When contact CI Student Support I was told that was necessary to use the CI template due to important files to be added in order to make the deployment works. That said, a new repository was created. The previous code was copied and past on the new file and the deployment ran with no failure. Deployed
 
 
 
