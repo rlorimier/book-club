@@ -6,12 +6,40 @@
 <div class="container">
   <div class="row">
     <div class="col-md-8 card mb-4  mt-3 left  top">
+
       <div class="card-body">
-       <h1>{% block title %} {{ post.title }} {% endblock title %}</h1>
-        <p class=" text-muted">{{ post.author }} | {{ post.created_date }}</p>
-        <a href="{% url 'newpost' pk=post.pk %}" class="btn btn-outline-primary btn-sm">Edit</a>
-        <p class="card-text ">{{ post.text|linebreaksbr }}</p>
+        <h1>{% block title %} {{ post.title }} {% endblock title %}</h1>
+        <p class="text-muted">{{ post.author }} | {{ post.created_date }}</p>
+
+        {% if user.is_authenticated %}
+          <a href="{% url 'editpost' pk=post.pk %}" class="btn btn-outline-primary btn-sm">Edit</a>
+        {% endif %}
+
+        <p class="card-body card-text">{{ post.text|linebreaksbr }}</p>
       </div>
+      
+      <hr>
+      <div class="card-body">
+        <h3>Comments...</h3>
+
+        {% if not post.comments.all %}
+        <p>No Comments yet!</p>
+        <a href="{% url 'addcomment' post.pk %}" class="btn btn-outline-primary btn-sm">Add Comment</a>
+        
+        {% else %}
+        
+          {% for comment in post.comments.all %}
+          <div class="card-img">
+            <p class="text-muted">{{ comment.name }} | {{ comment.published_date }}</p>
+            <p>{{ comment.body }}</p>
+          </div>
+          {% endfor %}
+
+        <a href="{% url 'addcomment' post.pk %}" class="btn btn-outline-primary btn-sm">Add Comment</a>
+        {% endif %}
+
+      </div>
+
     </div>
     {% block sidebar %} {% include 'sidebar.html' %} {% endblock sidebar %}
   </div>

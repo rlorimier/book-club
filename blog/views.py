@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.utils import timezone
-from .models import Post
-from .forms import PostForm
+from .models import Post, Comment
+from .forms import PostForm, CommentForm
 
 
 def index(request):
@@ -19,21 +19,21 @@ def about(request):
     return render(request, 'about.html', {'aboutus': aboutus})
 
 
-# def newpost(request):
-#      if request.method == "POST":
-#          form = PostForm(request.POST)
-#          if form.is_valid():
-#              post = form.save(commit=False)
-#              post.author = request.user
-#              post.published_date = timezone.now()
-#              post.save()
-#              return redirect('details', pk=post.pk)
-#      else:
-#          form = PostForm()
-#      return render(request, 'newpost.html', {'form': form})
+def newpost(request):
+     if request.method == "POST":
+         form = PostForm(request.POST)
+         if form.is_valid():
+             post = form.save(commit=False)
+             post.author = request.user
+             post.published_date = timezone.now()
+             post.save()
+             return redirect('newpost', pk=post.pk)
+     else:
+         form = PostForm()
+     return render(request, 'newpost.html', {'form': form})
 
 
-def newpost(request, pk):
+def editpost(request, pk):
     post = get_object_or_404(Post, pk=pk)
     if request.method == "POST":
         form = PostForm(request.POST, instance=post)
@@ -45,6 +45,17 @@ def newpost(request, pk):
             return redirect('details', pk=post.pk)
     else:
         form = PostForm(instance=post)
-    return render(request, 'newpost.html', {'form': form})
+    return render(request, 'editpost.html', {'form': form})
 
 
+def addcomment(request, pk):
+    if request.method == "POST":
+        form = CommentForm(request.POST)
+        if form.is_valid():
+            comment = form.save(commit=False)
+            comment.published_date = timezone.now()
+            comment.save()
+            return redirect('details')
+    else:
+        form = CommentForm()
+    return render(request, 'addcomment.html', {'form': form})
