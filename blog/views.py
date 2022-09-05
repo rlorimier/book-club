@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.utils import timezone
+from django.urls import reverse_lazy
 from .models import Post, Comment
 from .forms import PostForm, CommentForm
 
@@ -20,17 +21,17 @@ def about(request):
 
 
 def newpost(request):
-     if request.method == "POST":
-         form = PostForm(request.POST)
-         if form.is_valid():
-             post = form.save(commit=False)
-             post.author = request.user
-             post.published_date = timezone.now()
-             post.save()
-             return redirect('newpost', pk=post.pk)
-     else:
-         form = PostForm()
-     return render(request, 'newpost.html', {'form': form})
+    if request.method == "POST":
+        form = PostForm(request.POST)
+        if form.is_valid():
+            post = form.save(commit=False)
+            post.author = request.user
+            post.published_date = timezone.now()
+            post.save()
+            return redirect('details', pk=post.pk)
+    else:
+        form = PostForm()
+    return render(request, 'newpost.html', {'form': form})
 
 
 def editpost(request, pk):
@@ -49,13 +50,20 @@ def editpost(request, pk):
 
 
 def addcomment(request, pk):
+    post = get_object_or_404(Post, pk=pk)
     if request.method == "POST":
-        form = CommentForm(request.POST)
+        form = CommentForm(request.POST, instance=post)
         if form.is_valid():
-            comment = form.save(commit=False)
-            comment.published_date = timezone.now()
-            comment.save()
-            return redirect('details')
+            post = form.save(commit=False)
+            post.published_date = timezone.now()
+            post.save()
+            # def form_valid(self, form):
+            #     form.comment.post_id = self.kwargs['pk']
+            #     return super().form_valid(form)
+
+            return redirect('details', pk=post.pk)
     else:
-        form = CommentForm()
+        form = CommentForm(instance=post)
     return render(request, 'addcomment.html', {'form': form})
+
+    # success_url = reverse_lazy('home')
