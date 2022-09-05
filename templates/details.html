@@ -29,13 +29,14 @@
         {% else %}
         
           {% for comment in post.comments.all %}
-          <div class="card-img">
-            <p class="text-muted">{{ comment.name }} | {{ comment.published_date }}</p>
+          <div class="list-group-item">
+            <p class="card-subtitle text-muted">{{ comment.name }} | {{ comment.published_date }}</p>
             <p>{{ comment.body }}</p>
           </div>
           {% endfor %}
 
-        <a href="{% url 'addcomment' post.pk %}" class="btn btn-outline-primary btn-sm">Add Comment</a>
+        <br>
+        <a href="{% url 'addcomment' post.pk %}" class="btn btn-outline-primary btn-sm">Add New Comment</a>
         {% endif %}
 
       </div>

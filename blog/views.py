@@ -52,18 +52,14 @@ def editpost(request, pk):
 def addcomment(request, pk):
     post = get_object_or_404(Post, pk=pk)
     if request.method == "POST":
-        form = CommentForm(request.POST, instance=post)
+        form = CommentForm(data=request.POST)
         if form.is_valid():
-            post = form.save(commit=False)
-            post.published_date = timezone.now()
-            post.save()
-            # def form_valid(self, form):
-            #     form.comment.post_id = self.kwargs['pk']
-            #     return super().form_valid(form)
-
+            form = form.save(commit=False)
+            form.post = post
+            form.published_date = timezone.now()
+            form.save()
             return redirect('details', pk=post.pk)
     else:
         form = CommentForm(instance=post)
     return render(request, 'addcomment.html', {'form': form})
 
-    # success_url = reverse_lazy('home')
