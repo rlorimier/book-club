@@ -1,1 +1,1 @@
-web: gunicorn django-book-club.wsgi
+web: gunicorn djangobook.wsgi
