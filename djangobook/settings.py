@@ -33,6 +33,8 @@ DEBUG = False
 
 ALLOWED_HOSTS = ["django-book-club.herokuapp.com", "localhost"]
 
+X_FRAME_OPTIONS = 'SAMEORIGIN'
+
 
 # Application definition
 
