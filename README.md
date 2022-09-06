@@ -1,23 +1,11 @@
 # BOOK CLUB
 
-<!-- Book reviews from:
-https://www.goodreads.com/
-
-tutor support for:
-- template tags {% %}
-- load static
-
-bugs:
-- 
-
-issues:
-- migrade from sqlite to portgresql -->
 
 For my Milestone Project #4 on Code Institute's Diploma in Software Developement course I have created a blog, called Book Club. The blog is used to post reviews about books. All users can read the preview of the reviews on the main page and then be redirected to another page with the full review clicking on the 'Read more' button. If the user is registered and currently logged in, he can have access to create a new post for the blog or edit an existing one.  
 
-You can check the blog clicking HERE
+You can check the blog clicking [HERE](https://django-book-club.herokuapp.com/)
 
-[ PHOTO ]
+![HOME-PHOTO](static/images/home-book.png)
 
 
 
@@ -27,7 +15,7 @@ You can check the blog clicking HERE
 
 * Created in Django using Gitpod.
 * Deployed in Heroku for online interaction.
-* Lines commented for an easy and clear code understanding.
+
 
 ### User features
 
@@ -45,8 +33,8 @@ You can check the blog clicking HERE
 * Gitpod as IDE
 * Git for version control
 * GitHub to storage files
+* Cloudinary to storage media
 * Heroku for deployment
-* PEP8 for code validation
 
 
 
@@ -62,12 +50,13 @@ You can check the blog clicking HERE
 ## Credits
 
 ### Content
-* Book reviews taken from [Goodreads](https://www.goodreads.com/) website.
+* Book reviews from [Goodreads](https://www.goodreads.com/) website.
 
 
 
 ## Testing
-Code passed with no errors on PEP8 Validator. You can check it by clicking HERE.
+Manual tests done as admin user, regular user and visitant.
+In all scenarios the blog funcionalities worked without showing any issues.
 
 
 
@@ -86,7 +75,7 @@ When setting the supper user I was having trouble to access the Django Admin pag
 
 _To Fix: Needed support from Tutor - The server was not running. I was told to run the server and use the url *https://8000-rlorimier-bookclub-fa25pzry77q.ws-eu63.gitpod.io/admin/*._
 
-![Admin Error](blog/static/img/admin-error.png)
+![Admin Error](static/images/admin-error.png)
 
 
 * Hyperlinks not working
@@ -110,8 +99,11 @@ When adding a new post (only logged users), it shows and error message
 _To Fix: No support needed - I was using the same function for both, edit and create a new post. I decided to make it individualy and then it starts to work_
 
 
+* GET /favicon.ico HTTP/1.1" 404 179
 
+The terminal keeps showing this error from time to time and I can not find a solution or even where is comming from, as I did not add any favicon on the blog.
 
+_BUG NOT FIXED_
 
 
 
