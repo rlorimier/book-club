@@ -25,6 +25,9 @@ class Comment(models.Model):
     created_date = models.DateTimeField(default=timezone.now)
     published_date = models.DateTimeField(blank=True, null=True)
 
+    class Meta:
+        ordering = ['-published_date']
+
     def publish(self):
         self.published_date = timezone.now()
         self.save()
