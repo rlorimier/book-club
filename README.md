@@ -106,6 +106,14 @@ The terminal keeps showing this error from time to time and I can not find a sol
 _BUG NOT FIXED_
 
 
+* Push failed on Heroku
+
+When pushing my gitpod project to Heroku, following the instructions for: DEBUG=False and excluding DISABLE_COLLECTSTATIC=1, an error message is shown.
+I tried help from my mentor and from the tutor support but none of them were able to help me to find a solution for it. So, I left the DEBUG as False on my code and added again the DISABLE_COLLECTSTATIC=1 and tried to puch my code again. The push worked this time, however the css file is not being loaded. All funcionalities seems to work fine on the manual tests, but the css.
+
+_BUG NOT FIXED_
+
+
 
 ## Creating a Repository and Deploying
 The steps to create a new repository:
